@@ -39,21 +39,6 @@ function append(orbitTable, a, b) {
   orbitee.nodes.push(orbiter);
 }
 
-function getDistanceFromSanta(body) {
-  if (body.distanceFromSanta === undefined) {
-    if (body.name === 'SAN') {
-      body.distanceFromSanta = 0; // found him!
-    } else {
-      body.distanceFromSanta
-      body.distanceFromSanta = Infinity; // eh wrong direction
-    } else {
-      body.distanceFromSanta = 1 + getDistanceFromSanta(body.orbits);
-    }
-  } 
-
-  return body.distanceFromSanta;
-}
-
 function solve(orbitTable) {
   // just gonna do bfs;
   const you = orbitTable.get('YOU');
@@ -65,10 +50,10 @@ function solve(orbitTable) {
   let searchedNodes = new Set();
   
   while (!solved) {
-    let availableNodes = Array.from(currentNodes).flatMap(body => body.nodes);
-    newNodes = new Set(availableNodes.filter(node => !searchedNodes.has(node));
+    let availableNodes = Array.from(newNodes).flatMap(body => body.nodes);
+    newNodes = new Set(availableNodes.filter(node => !searchedNodes.has(node)));
 
-    searchedNodes = new Set(...searchedNodes, newNodes);
+    searchedNodes = new Set([...searchedNodes, ...newNodes]);
     solved = searchedNodes.has(santa);
 
     steps++;
