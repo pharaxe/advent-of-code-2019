@@ -1,0 +1,14 @@
+{
+  "name": "day-05",
+  "version": "1.0.0",
+  "description": "",
+  "main": "computer.js",
+  "scripts": {
+    "test": "node computer.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "~1.4.10"
+  }
+}
