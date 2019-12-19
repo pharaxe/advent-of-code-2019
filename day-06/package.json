@@ -1,0 +1,12 @@
+{
+  "name": "day-06",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+    "test2": "node index2.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
