@@ -1,4 +1,4 @@
-"use strict";
+import * as lineReader from "line-reader";
 
 const findNumbers = (numbers) => { 
   numbers.sort();
@@ -16,21 +16,14 @@ const findNumbers = (numbers) => {
 
 const solve = () => {
   const [a, b] = findNumbers(numbers);
-  console.log(`${a}, and ${b} and to 2020 and multiply to ${a * b}`);
+  console.log(`${a}, and ${b} add to 2020 and multiply to ${a * b}`);
 };
 
-const fs = require('fs');
-const readline = require('readline');
-const filename = process.argv[2];
-const readStream = fs.createReadStream(filename);
-const readInterface = readline.createInterface({ input: readStream });
-
 const numbers = [];
-
-readInterface.on('line', (line) => {
-  const expense = Number(line);
-  numbers.push(expense);
-}).on('close', () => {
+const filename = process.argv[2];
+lineReader.eachLine(filename, (line) => { 
+    const expense = Number(line);
+    numbers.push(expense);
+}, () => {
   solve(numbers);
 });
-

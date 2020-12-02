@@ -1,4 +1,4 @@
-"use strict";
+import * as lineReader from "line-reader";
 
 const hasDuplicates = (array) => {
   return new Set(array).size !== array.length;
@@ -28,19 +28,12 @@ const solve = () => {
   console.log(`${a}, ${b}, and ${c} add to 2020 and multiply to ${a * b * c}`);
 };
 
-const fs = require("fs");
-const readline = require("readline");
-const filename = process.argv[2];
-const readStream = fs.createReadStream(filename);
-const readInterface = readline.createInterface({ input: readStream });
-
 const numbers = [];
-
-readInterface
-  .on("line", (line) => {
+const filename = process.argv[2];
+lineReader.eachLine(filename, (line) => { 
     const expense = Number(line);
     numbers.push(expense);
-  })
-  .on("close", () => {
-    solve(numbers);
-  });
+}, () => {
+  solve(numbers);
+});
+
