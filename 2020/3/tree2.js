@@ -8,7 +8,7 @@ const calculateTreesHit = (slope, hill) => {
   const width = hill[0].length;
   let treesHit = 0;
   while (y <= hill.length - 1) {
-    if (hill[y][x] === '#') {
+    if (hill[y][x] === "#") {
       treesHit++;
     }
     x += slope[0];
@@ -29,7 +29,7 @@ const solve = () => {
     [1, 2],
   ];
 
-  const treesHit = slopes.map(slope => calculateTreesHit(slope, lines));
+  const treesHit = slopes.map((slope) => calculateTreesHit(slope, lines));
   const answer = treesHit.reduce((accum, cur) => accum * cur, 1);
   console.log(`${treesHit} multiplied together is ${answer}`);
 };
