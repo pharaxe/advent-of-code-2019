@@ -1,6 +1,8 @@
 import * as lineReader from "line-reader";
 
-const main = (lines: string[]) => {};
+const main = (lines: string[]) => {
+  console.log("hello world");
+};
 
 var filename = process.argv[2];
 var lines = [];
