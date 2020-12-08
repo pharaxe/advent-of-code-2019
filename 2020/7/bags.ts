@@ -20,8 +20,8 @@ const main = (lines: string[]) => {
 };
 
 const canContainGoldenBag = (cur: Bag): boolean => {
-  // console.log(cur, cur.bagsInside);
-  if (cur.bagsInside.some((bag) => bag.name === "shiny golden")) {
+  console.log(cur, cur.bagsInside);
+  if (cur.bagsInside.some((bag) => bag.name === "shiny gold")) {
     cur.canContainMyBag = true;
     return true;
   }
@@ -32,13 +32,9 @@ const canContainGoldenBag = (cur: Bag): boolean => {
     }
   });
 
-  if (cur.bagsInside.every((bag) => bag.canContainMyBag === false)) {
-    cur.canContainMyBag = false;
-  }
-
-  if (cur.bagsInside.some((bag) => bag.canContainMyBag === true)) {
-    cur.canContainMyBag = true;
-  }
+  cur.canContainMyBag = cur.bagsInside.some(
+    (bag) => bag.canContainMyBag === true
+  );
 
   return cur.canContainMyBag;
 };
@@ -57,12 +53,8 @@ const augmentBagDescription = (
       const regex: RegExp = /\d+ (\S+ \S+) bags?/;
       const matches = fullString.match(regex);
       const name = matches[1];
-      if (topBagName == "posh blue") {
-        console.log(fullString, name);
-      }
       return name;
     });
-
 
     const topBag: Bag = bags.get(topBagName);
     const insideBags: Bag[] = innerBagNames.map((name) => bags.get(name));
