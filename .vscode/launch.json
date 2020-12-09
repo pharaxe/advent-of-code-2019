@@ -9,8 +9,8 @@
       "request": "launch",
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/2020/7/bags2.ts",
-      "args": ["${workspaceFolder}/2020/7/input.txt"],
+      "program": "${workspaceFolder}/2020/8/handheld.ts",
+      "args": ["${workspaceFolder}/2020/8/input.txt"],
       "outFiles": ["${workspaceFolder}/**/*.js"]
     }
   ]

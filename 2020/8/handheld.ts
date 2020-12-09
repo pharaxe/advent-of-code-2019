@@ -1,4 +1,5 @@
 import * as lineReader from "line-reader";
+import cloneDeep from "lodash/cloneDeep";
 
 type GameConsole = {
   acc: number;
@@ -6,6 +7,7 @@ type GameConsole = {
   memory: Instruction[];
   foundInfiniteLoop: boolean;
   terminatedCorrectly: boolean;
+  name: string;
 };
 
 type Instruction = {
@@ -23,7 +25,8 @@ const main = (lines: string[]) => {
   });
 
   for (const game of games) {
-    while (!game.foundInfiniteLoop || game.terminatedCorrectly) {
+    console.log(`Running program for ${game.name}.`);
+    while (!game.foundInfiniteLoop && !game.terminatedCorrectly) {
       execute(game);
     }
     if (game.terminatedCorrectly) {
@@ -32,21 +35,23 @@ const main = (lines: string[]) => {
     }
   }
 
-  console.log("Shouldn't get here! Oh no")
+  console.log("Shouldn't get here! Oh no");
 };
 
 const initializeGame = (instructions: Instruction[]): GameConsole => {
   return {
     acc: 0,
     pc: 0,
-    memory: [...instructions],
+    memory: cloneDeep(instructions),
     foundInfiniteLoop: false,
     terminatedCorrectly: false,
+    name: "",
   };
 };
 
 const flipOneInstruction = (game: GameConsole, i: number) => {
   const { opcode } = game.memory[i];
+  game.name = `Game clone number ${i}`;
 
   let newOp = "acc";
   if (opcode === "nop") {
@@ -59,6 +64,11 @@ const flipOneInstruction = (game: GameConsole, i: number) => {
 
 const execute = (game: GameConsole): void => {
   const { pc, memory } = game;
+
+  if (game.pc === memory.length) {
+    game.terminatedCorrectly = true;
+    return; // we win!
+  }
 
   const { opcode, value } = memory[pc];
 
@@ -80,10 +90,6 @@ const execute = (game: GameConsole): void => {
     case "nop":
       game.pc++;
       break;
-  }
-
-  if (game.pc === memory.length) {
-    game.terminatedCorrectly = true;
   }
 };
 
