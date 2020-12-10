@@ -1,5 +1,4 @@
 import * as lineReader from "line-reader";
-import { last } from "lodash";
 
 const magicNumber = 22477624;
 
