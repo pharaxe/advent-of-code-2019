@@ -9,7 +9,7 @@
       "request": "launch",
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/2020/10/jolts.ts",
+      "program": "${workspaceFolder}/2020/10/jolts2.ts",
       "args": ["${workspaceFolder}/2020/10/input.txt"],
       "outFiles": ["${workspaceFolder}/**/*.js"]
     }
