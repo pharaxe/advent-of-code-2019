@@ -39,10 +39,29 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@types/lodash@^4.14.165":
+"@types/line-reader@^0.0.30":
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/@types/line-reader/-/line-reader-0.0.30.tgz#e6a9f944d535116890b92a25f3568fb7c7c5efae"
+  integrity sha512-A5D6HEBtCkgptKOqDoDkzJHjD1DBWN9EppsNlKYOz5Fd/Ioz2Pd7lI5wEwTVpHSuoIS361Pw1eoGD5msy0av0g==
+  dependencies:
+    "@types/node" "*"
+
+"@types/lodash-es@^4.14.165":
+  version "4.17.3"
+  resolved "https://registry.yarnpkg.com/@types/lodash-es/-/lodash-es-4.17.3.tgz#87eb0b3673b076b8ee655f1890260a136af09a2d"
+  integrity sha512-iHI0i7ZAL1qepz1Y7f3EKg/zUMDwDfTzitx+AlHhJJvXwenP682ZyGbgPSc5Ej3eEAKVbNWKFuwOadCj5vBbYQ==
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash@*":
   version "4.14.165"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.165.tgz"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.165.tgz#74d55d947452e2de0742bad65270433b63a8c30f"
   integrity sha512-tjSSOTHhI5mCHTy/OOXYIhi2Wt1qcbHmuXD1Ha7q70CgI/I71afO4XtLb/cVexki1oVYchpul/TOuu3Arcdxrg==
+
+"@types/node@*":
+  version "14.14.11"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.11.tgz#fc25a4248a5e8d0837019b1d170146d07334abe0"
+  integrity sha512-BJ97wAUuU3NUiUCp44xzUFquQEvnk1wu7q4CMEUYKJWjdkr0YWYDsm4RFtAvxYsNjLsKcrFt6RvK8r+mnzMbEQ==
 
 "@types/node@^14.14.10":
   version "14.14.10"
@@ -485,11 +504,6 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
-js-combinatorics@^1.4.5:
-  version "1.4.5"
-  resolved "https://registry.yarnpkg.com/js-combinatorics/-/js-combinatorics-1.4.5.tgz#f9b5d57ba97d1dba420c133b4ddbfabc5a41353c"
-  integrity sha512-lIBPgsZnIK5S8kCyTUY4L34Kq5YXj2LXyk9WJDPsK6iklV96+ZahxIsgHtXcwHhG9XZhqrS1EbnaEkUh5gyXdg==
-
 js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz"
@@ -528,7 +542,7 @@ line-reader@^0.4.0:
 
 lodash-es@^4.17.15:
   version "4.17.15"
-  resolved "https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.15.tgz"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
   integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
 
 lodash.clonedeep@^4.5.0:
@@ -538,10 +552,10 @@ lodash.clonedeep@^4.5.0:
 
 lodash.combinations@^18.10.0:
   version "18.10.0"
-  resolved "https://registry.yarnpkg.com/lodash.combinations/-/lodash.combinations-18.10.0.tgz"
+  resolved "https://registry.yarnpkg.com/lodash.combinations/-/lodash.combinations-18.10.0.tgz#9b8702b86f090a33cd8a07831809ca2f496b82a9"
   integrity sha512-r4dZ+29r4KfFaih2W+dAUZXYEI6YSMHTaplM7Int08p4/X4j3hxZRMfzvOHCnTGGEeYFeEHZA3K8p3/S0cSS1Q==
 
-lodash@^4.17.14, lodash@^4.17.19, lodash@^4.17.20:
+lodash@^4.17.14, lodash@^4.17.19:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
