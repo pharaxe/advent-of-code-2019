@@ -1,3 +1,4 @@
+import { SSL_OP_EPHEMERAL_RSA } from "constants";
 import * as lineReader from "line-reader";
 import { isEqual } from "lodash-es";
 
@@ -16,7 +17,9 @@ type Seat = {
 
 type WaitingRoom = Seat[][];
 
-const main = (lines: string[]) => {
+const SHOW_ANIMATION = true;
+
+const main = async (lines: string[]) => {
   let room: WaitingRoom = lines.reduce((accum, line) => {
     return [
       ...accum,
@@ -36,6 +39,10 @@ const main = (lines: string[]) => {
   let previousRoom: WaitingRoom;
 
   while (!roomsComparator(room, previousRoom)) {
+    if (SHOW_ANIMATION) {
+      printRoom(room);
+      await new Promise(resolve => setTimeout(resolve, 500));
+    }
     previousRoom = room;
     room = stepForward(room);
   }
@@ -170,3 +177,11 @@ lineReader.eachLine(filename, function (line, last) {
     main(lines);
   }
 });
+
+const printRoom = (room: WaitingRoom) => {
+  console.clear();
+  for (let y = 0; y < room.length; y++) {
+    const string = room[y].map(seat => seat.type).join("");
+    console.log(string);
+  }
+}
