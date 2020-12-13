@@ -1,26 +1,52 @@
+import { schedulingPolicy } from "cluster";
 import * as lineReader from "line-reader";
 
 type Bus = {
   id: number;
-  timeWaiting: number;
+  offset: number;
 };
 
 const main = (lines: string[]): void => {
-  const earliest: number = parseInt(lines[0]);
-  const buses: Bus[] = lines[1]
-    .split(",")
-    .filter((busId) => busId !== "x")
-    .map((busId) => parseInt(busId))
-    .map((id) => ({
-      id,
-      timeWaiting: id - (earliest % id),
-    }));
+  const sched: string[] = lines[1].split(",");
 
-  const leastWaiting: Bus = buses.reduce((least, cur) => {
-    return cur.timeWaiting < least.timeWaiting ? cur : least;
-  }, buses[0]);
+  let allBuses: Bus[] = [];
+  let offset = 0;
+  for (const val of sched) {
+    if (val !== "x") {
+      allBuses.push({
+        id: parseInt(val),
+        offset,
+      });
+    }
+    offset++;
+  }
 
-  console.log(leastWaiting.timeWaiting * leastWaiting.id);
+  let incrementAmount = allBuses[0].id;
+  let busWeAreSolvingIndex = 1;
+  let numberToCheck = incrementAmount;
+  const solvedBuses = [allBuses[0]];
+
+  while (solvedBuses.length < allBuses.length) {
+    const nextBus = allBuses[busWeAreSolvingIndex];
+    while (
+      !isAnswer(numberToCheck, [...solvedBuses, nextBus])
+    ) {
+      numberToCheck += incrementAmount;
+    }
+
+    incrementAmount *= nextBus.id;
+    solvedBuses.push(nextBus);
+    busWeAreSolvingIndex++;
+  }
+
+  console.log(numberToCheck);
+};
+
+const isAnswer = (val: number, buses: Bus[]): boolean => {
+  return buses.every((bus) => {
+    const fits = (val + bus.offset) % bus.id === 0;
+    return fits;
+  });
 };
 
 var filename = process.argv[2];
