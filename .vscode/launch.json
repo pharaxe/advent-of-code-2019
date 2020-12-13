@@ -10,7 +10,7 @@
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/2020/13/bus2.ts",
-      "args": ["${workspaceFolder}/2020/13/input2.txt"],
+      "args": ["${workspaceFolder}/2020/13/input.txt"],
       "outFiles": ["${workspaceFolder}/**/*.js"]
     }
   ]

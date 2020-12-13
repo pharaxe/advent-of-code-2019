@@ -1,4 +1,3 @@
-import { schedulingPolicy } from "cluster";
 import * as lineReader from "line-reader";
 
 type Bus = {
