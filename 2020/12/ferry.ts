@@ -44,8 +44,8 @@ const DirectionMapping: Record<DirectionAction, [number, number]> = {
 const RotationalMapping: Record<DirectionAction, Record<RotateAction, DirectionAction>> = {
   [Action.NORTH]: { [Action.LEFT]: Action.WEST, [Action.RIGHT]: Action.EAST },
   [Action.SOUTH]: { [Action.LEFT]: Action.EAST, [Action.RIGHT]: Action.WEST },
-  [Action.EAST]: { [Action.LEFT]: Action.SOUTH, [Action.RIGHT]: Action.NORTH },
-  [Action.WEST]: { [Action.LEFT]: Action.NORTH, [Action.RIGHT]: Action.SOUTH },
+  [Action.EAST]: { [Action.LEFT]: Action.NORTH, [Action.RIGHT]: Action.SOUTH },
+  [Action.WEST]: { [Action.LEFT]: Action.SOUTH, [Action.RIGHT]: Action.NORTH },
 }
 
 const initialFerry: Ferry = {
