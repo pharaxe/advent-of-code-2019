@@ -1,18 +1,18 @@
 import * as lineReader from "line-reader";
 
-type Direction = "forward" | "up" | "down";
+export type Direction = "forward" | "up" | "down";
 
-type Command = {
+export type Command = {
   direction: Direction;
   amount: number;
 };
 
-type Position = {
+export type Position = {
   depth: number;
   horizontal: number;
 };
 
-const lineToCommand = (line: string): Command => {
+export const lineToCommand = (line: string): Command => {
   const [direction, amount] = line.split(" ");
 
   return {
@@ -53,9 +53,11 @@ const main = (lines: string[]): void => {
 
 const filename = process.argv[2];
 const lines = [];
-lineReader.eachLine(filename, (line, last) => {
-  lines.push(line);
-  if (last) {
-    main(lines);
-  }
-});
+if (filename) { 
+  lineReader.eachLine(filename, (line, last) => {
+    lines.push(line);
+    if (last) {
+      main(lines);
+    }
+  });
+}
