@@ -1,5 +1,3 @@
-prepared for several different tests, testing each of the functions parse(), part1(), and part2():
-
 # test_aoc_template.py
 
 import pathlib
